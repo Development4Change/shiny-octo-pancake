@@ -1,0 +1,106 @@
+<!--Display all users and business profiles. create edit delete users create edit delete business profile-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%userList.forEach(user => {%>
+            <tr>
+                <th scope="row"><%= user._id %></th>
+                <td><%= user.firstname %></td>
+                <td><%= user.lastname %></td>
+                <td><%= user.email %></td>
+                <td><%= user.password %></td>
+            </tr>
+        <%})%>
+        </tbody>
+      </table>
+
+
+
+    <!-- A button to open the popup form -->
+    <button class="open-button" onclick="openCreateForm()">Create User</button>
+
+    <!-- The form -->
+    <div class="form-popup" id="createForm">
+        <form action="/dashboard" method="POST">
+            <h1>Create User</h1>
+
+            <div>
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" 
+                required>
+            </div>
+            <div>
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" 
+                required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" 
+                required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" minlength="9"
+                required>
+            </div>
+
+        <button type="submit" class="btn">Create</button>
+        <button type="button" class="btn cancel" onclick="closeCreateForm()">Close</button>
+    </form>
+    </div>
+
+    <!-- A button to open the popup form -->
+    <button class="open-button" onclick="openDeleteForm()">Delete User</button>
+
+    <!-- The form -->
+    <div class="form-popup" id="deleteForm">
+        <form action="/dashboard/delete" method="POST">
+            <h1>Delete User</h1>
+          
+            <div>
+                <label for="emaild">Email</label>
+                <input type="emaild" id="emaild" name="emaild" 
+                required>
+            </div>
+
+        <button type="submit" class="btn">Delete</button>
+        <button type="button" class="btn cancel" onclick="closeDeleteForm()">Close</button>
+    </form>
+    </div>
+
+
+    <script>
+    function openCreateForm() {
+        document.getElementById("createForm").style.display = "block";
+      }
+    function closeCreateForm() {
+        document.getElementById("createForm").style.display = "none";
+      }
+    function openDeleteForm() {
+        document.getElementById("deleteForm").style.display = "block";
+      }
+    function closeDeleteForm() {
+        document.getElementById("deleteForm").style.display = "none";
+      }
+      </script>
+</body>
+</html>

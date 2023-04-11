@@ -25,6 +25,7 @@ router.post('/', async(req, res) => {
 
      }catch (e){
           console.log(e)
+          res.send('Email already exists in our system.')
      }
 })
 
