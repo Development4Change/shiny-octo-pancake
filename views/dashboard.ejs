@@ -5,37 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-    
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">User ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-          </tr>
-        </thead>
-        <tbody>
-        <%userList.forEach(user => {%>
-            <tr>
-                <th scope="row"><%= user._id %></th>
-                <td><%= user.firstname %></td>
-                <td><%= user.lastname %></td>
-                <td><%= user.email %></td>
-                <td><%= user.password %></td>
-            </tr>
-        <%})%>
-        </tbody>
-      </table>
-
-
+    <!--form button controls-->
+    <script>
+        function openCreateForm() {
+            document.getElementById("createForm").style.display = "block";
+          }
+        function closeCreateForm() {
+            document.getElementById("createForm").style.display = "none";
+          }
+        function openDeleteForm() {
+            document.getElementById("deleteForm").style.display = "block";
+          }
+        function closeDeleteForm() {
+            document.getElementById("deleteForm").style.display = "none";
+          }
+          </script>
+          
 
     <!-- A button to open the popup form -->
-    <button class="open-button" onclick="openCreateForm()">Create User</button>
+    <button class="btn btn-primary" onclick="openCreateForm()">Create User</button>
 
     <!-- The form -->
     <div class="form-popup" id="createForm">
@@ -43,33 +35,33 @@
             <h1>Create User</h1>
 
             <div>
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" 
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text"  class="form-control" id="firstname" name="firstname" 
                 required>
             </div>
             <div>
-                <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" 
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text"  class="form-control" id="lastname" name="lastname" 
                 required>
             </div>
             <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" 
+                <label for="email" class="form-label">Email</label>
+                <input type="email"  class="form-control" id="email" name="email" 
                 required>
             </div>
             <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" minlength="9"
+                <label for="password" class="form-label">Password</label>
+                <input type="password"   class="form-control" id="password" name="password" minlength="9"
                 required>
             </div>
 
-        <button type="submit" class="btn">Create</button>
-        <button type="button" class="btn cancel" onclick="closeCreateForm()">Close</button>
+        <button type="submit" class="btn btn-secondary">Create</button>
+        <button type="button" class="btn close" onclick="closeCreateForm()">Close</button>
     </form>
     </div>
 
     <!-- A button to open the popup form -->
-    <button class="open-button" onclick="openDeleteForm()">Delete User</button>
+    <button class="btn btn-primary" onclick="openDeleteForm()">Delete User</button>
 
     <!-- The form -->
     <div class="form-popup" id="deleteForm">
@@ -77,30 +69,38 @@
             <h1>Delete User</h1>
           
             <div>
-                <label for="emaild">Email</label>
-                <input type="emaild" id="emaild" name="emaild" 
+                <label for="emaild" class="form-label">Email</label>
+                <input type="emaild" class="form-control" id="emaild" name="emaild" 
                 required>
             </div>
 
-        <button type="submit" class="btn">Delete</button>
-        <button type="button" class="btn cancel" onclick="closeDeleteForm()">Close</button>
+        <button type="submit" class="btn btn-secondary">Delete</button>
+        <button type="button" class="btn close" onclick="closeDeleteForm()">Close</button>
     </form>
     </div>
 
 
-    <script>
-    function openCreateForm() {
-        document.getElementById("createForm").style.display = "block";
-      }
-    function closeCreateForm() {
-        document.getElementById("createForm").style.display = "none";
-      }
-    function openDeleteForm() {
-        document.getElementById("deleteForm").style.display = "block";
-      }
-    function closeDeleteForm() {
-        document.getElementById("deleteForm").style.display = "none";
-      }
-      </script>
+   
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Email</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Password</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%userList.forEach(user => {%>
+            <tr>
+                <th scope="row"><%= user.email %></th>
+                <td><%= user.firstname %></td>
+                <td><%= user.lastname %></td>
+                <td><%= user.password %></td>
+            </tr>
+        <%})%>
+        </tbody>
+      </table>
+
 </body>
 </html>
