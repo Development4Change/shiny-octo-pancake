@@ -1,23 +1,41 @@
 const mongoose = require ('mongoose')
 
 const surveySchema = new mongoose.Schema({
-    
-    firstName: {
-        type: String,
-        required: true
+    createdDate:{
+        type: Date,
     },
-    lastName: {
-        type: String,
-        required: true
-    },
-    service: {
+    serviceProvider: {
         type: String, 
         required: true
     },
-    rating: {
-        type: String, 
+    firstVisit: {
+        type: String,
+        required: true
+    },
+    servicesRequested: {
+        type: String,
+        required: true
+    },
+    rankKnowledge: {
+        type: String,
+        required: true
+    },
+    timely: {
+        type: String,
+        required: true
+    },
+    rankQuality: {
+        type: String,
+        required: true
+    },
+    metNeeds: {
+        type: String,
+        required: true
+    },
+    comments: {
+        type: String,
         required: true
     }
 })
 
-module.exports = mongoose.model('Survey', surveySchema) 
+module.exports = mongoose.model('Survey', surveySchema)
