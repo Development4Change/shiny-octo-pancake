@@ -1,54 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="'style.css">
-</head>
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <h2>Feedback Survey</h2>
-    <form action="/survey" method="POST" onsubmit="window.alert('Survey submiited!')">
-        <br>
-        <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" id="firstName">
-        <br>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="views/css/form.css">
+        <nav class="navbar navbar-expand-lg sticky-top bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/register">Signup</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/opportunities">Opportunities</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/opportunity">Post Opportunity</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/survey">Leave A Review</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/report">Completed Reviews</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/allReports">All Reviews</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </head>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" id="lastName">
-        <br>
+    <body>
+        <h2 class="h2 text-center">Feedback Survey</h5>
+        <div class="card w-50 mb-3 mx-auto">
+            <div class="card-body">
+              
+              <form id="form" action="/survey" method="POST" onsubmit="return alert('Form submitted!');">
+                <div class="mb-3">
+                    <label class="form-label" for ="serviceProvider">
+                        Service Provider Used:
+                    </label> 
+                    <p name ="one">(If not listed, input service provider's name manually)</p>
+                        
+                    <input type="search" list="browsers"  name="serviceProvider" class="form-select" placeholder="Type to search..." required>
+                    
+                    <datalist id="browsers">
+                        <option value="JSEB Access to Capital">
+                        <option value="Better Business Bureau of Northeast Florida">
+                        <option value="Jacksonville Women's Business Center">
+                        <option value="Procurement Technical Assistance Center (PTAC)">
+                        <option value="SCORE">
+                        <option value="Small Business Development Center (SBDC) at University of North Florida (UNF)">
+                        <option value="Small Business Resource Network">  
+                        <option value="U.S. Small Business Administration">
+                        <option value="Women Business Owners of North Florida">
+                        <option value="Florida Business Development Corporation"> 
+                        <option value="Florida First Capital Finance Corporation (FFCFC)">
+                        <option value="U.S. Small Business Administration">
+                        <option value="Beaver Street Enterprise Center">
+                        <option value="Small Business Workshops at the JAX Chamber's Small Business Center">
+                        <option value="Small Business Workshops at the Small Business Development Center at UNF">
+                        <option value="UNF Small Business Blog - From the Small Business Development Center at the University of North Florida">
+                        <option value="CareerSource">
+                        <option value="Jacksonville Chamber JAX Bridges">
+                        <option value="Nonprofit Center of Northeast Florida">
+                        <option value="Swisher Growth Cohort for Underrepresented Entrepreneurs">
+                        <option value="Jim Moran Institute for Global Entrepreneurship">      
+                    </datalist>
+                    </input>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="firstVisit">
+                        Was this your first visit with this provider?
+                    </label><br>
+    
+                    <label class="form-check-label" for="visitYes">
+                        <input class="form-check-input" type="radio" id="visit-1" name="firstVisit" value="Yes"> 
+                            Yes
+                    </label><br>
+                    <label class="form-check-label" for="VisitNo">
+                        <input class="form-check-input" type="radio" id="visit-2" name="firstVisit" value="No" required> 
+                            No
+                    </label>
+                </div>
+                <!--Start Service Requested-->
+            
+            <div class="mb-3">
+                <label class="form-label" for="servicesRequested">
+                    What service did you request from this provider?
+                </label>
 
-        <div>
-            Please select the service provider you signed up for:<br>
+                <textarea class="form-control" aria-label="With textarea" name="servicesRequested" id="servicesRequested" placeholder="Services Requested" required></textarea>
+            </div>
+            <!--End Service Requested-->
+
+            <!--Start Rank Knowledge-->
+            <div class="mb-3">
+                <label for="range" class="form-label">
+                    How would you rate the provider's knowledge in this area?
+                </label>
+
+                    <input type="range" class="form-range" name = "rankKnowledge" min="0" max="10" value="5" step =".5" oninput="rangeValue.innerText = this.value">
+                    <p class="text-center" id="rangeValue">5</p>
+            </div>
+            <!--End Rank Knowledge-->
+
+            <!--Start Timely Manner-->
+            <div class="mb-3">
+                <label class="form-label" for ="timely">
+                    Was the service provided in a timely manner?
+                </label><br>
+
+                <label for="time1" class="form-check-label">
+                    <input class="form-check-input" type="radio" id="time-1" name="timely" value="Extremely timely"required> 
+                    Extremely timely
+                </label><br>
+                <label for="time2" class="form-check-label">
+                    <input class="form-check-input" type="radio" id="time-2" name="timely" value="Very timely"> 
+                    Very timely
+                </label><br>
+                <label for="time3" class="form-check-label">
+                    <input class="form-check-input" type="radio" id="time-3" name="timely" value="Somewhat timely"> 
+                    Somewhat timely
+                </label><br>
+                <label for="time4" class="form-check-label">
+                    <input class="form-check-input" type="radio" id="time-4" name="timely" value="Not so timely"> 
+                    Not so timely
+                </label><br>
+                <label for="time5" class="form-check-label"> 
+                    <input class="form-check-input" type="radio" id="time-5" name="timely" value="Not at all timely"> 
+                    Not at all timely
+                </label>
+            </div>
+            <!--End Timely Manner-->
+            
+
+            <!--Start Satisfied-->
+            <div class="mb-3">
+                <label class="form-label" for ="rankQuality">
+                    How would you rate the overall quality of the service you received?
+                </label>
+
+                <input class="form-range" type="range" name = "rankQuality" min="0" max="10" value="5" step =".5" oninput="rangeValue2.innerText = this.value">
+                    <p class="text-center" id="rangeValue2">5</p>
+            </div>
+            <!--End Satisfied-->
+
+            <!--Start Meet Needs-->
+            <div class="mb-3">
+                <label class="form-label" for ="metNeeds">
+                    How well did the service provider meet your specific business needs?
+                </label><br>
+
+                <label for="needs1" class="form-check-label">
+                    <input type="radio" class="form-check-input" id="needs-1" name="metNeeds" value="Excellent" required> 
+                    Excellent
+                </label><br>
+                <label for="needs2" class="form-check-label">
+                    <input type="radio" class="form-check-input" id="needs-2" name="metNeeds" value="Very good"> 
+                    Very Good
+                </label><br>
+                <label for="needs3" class="form-check-label">
+                    <input type="radio" class="form-check-input" id="needs-3" name="metNeeds" value="Good"> 
+                    Good
+                </label><br>
+                <label for="needs4" class="form-check-label">
+                    <input type="radio" class="form-check-input" id="needs-4" name="metNeeds" value="Poor"> 
+                    Poor
+                </label><br>
+                <label for="needs5" class="form-check-label">
+                    <input type="radio" class="form-check-input" id="needs-5" name="metNeeds" value="Very poor"> 
+                    Very Poor
+                </label>
+            </div>
+            <!--End Meet Needs-->
+            
+            <!--Start Comments-->
+            <div class="mb-3">
+                <label class="form-label" for="comments">
+                    Any comments or suggestions?
+                </label>
+
+                <!-- multi-line text input control -->
+                <textarea class="form-control" name="comments" id="comment" placeholder="Enter your comment here"></textarea>
+            </div>
+            <!--End Comments-->
+
+
+                <button class="btn btn-primary" type="submit" value="submit" onsubmit="setFormSubmitting()">Submit</button>
+            
+            </form>
+          </div>
         </div>
+    </body>
+</html>
 
-        <select name="service" id="service" required>
-            <option value="" disabled selected hidden>Type to search </option>
-            <option value="JSEB Access to Capital">JSEB Access to Capital</option>
-            <option value="Better Business Bureau of Northeast Florida">Better Business Bureau of Northeast Florida</option>
-            <option value="Jacksonville Women's Business Center">Jacksonville Women's Business Center</option>
-        </select>
-        <br>
+<script>
+    var formSubmitting = false;
+    var setFormSubmitting = function() { formSubmitting = true; };
 
-        <div>
-            What rating would you give the service recieved (1 - 5):<br>
-        </div>
-[11:47 PM]
-<select name="rating" id="rating" required>
-            <option value="" disabled selected hidden>Type to select</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <br>
+    window.onload = function() {
+        window.addEventListener("beforeunload", function (e) {
+            if (formSubmitting) {
+                return undefined;
+            }
 
-        <button type="submit">Submit</button>
-    </form>
-    <a href="/index">Go back home</a>
-</body>
-</html> 
+            var confirmationMessage = 'It looks like you have been editing something. '
+                                    + 'If you leave before saving, your changes will be lost.';
+            
+            (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+            return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+        });
+    };
+</script>

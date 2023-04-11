@@ -29,7 +29,7 @@ app.use(express.static(__dirname));
 app.use('/', indexRouter);
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
-app.use('/survey', surveyRouter)
+app.use('/', surveyRouter)
 app.use('/manageReports', manageReportsRouter)
 app.use('/dashboard',dashboardRouter)
 
