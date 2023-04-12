@@ -31,14 +31,13 @@ app.use(express.static(__dirname));
 app.use('/', indexRouter);
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
-app.use('/', surveyRouter)
+app.use('/survey', surveyRouter)
 app.use('/manageReports', manageReportsRouter)
 app.use('/dashboard',dashboardRouter)
-app.use('/', opportunityRouter)
+app.use('/opportunity', opportunityRouter)
 app.use('/', postedOpportunitiesRouter)
 
 // syntax to limit how much data is being pushed to mongo db
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
 app.listen(process.env.PORT || 3000)
-//auto

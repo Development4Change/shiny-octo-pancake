@@ -3,13 +3,13 @@ const router = express.Router()
 const Opportunity = require('../models/opportunityModel')
 
 // opportunity page route
-router.get('/opportunity', (req, res) => {
+router.get('/', (req, res) => {
     console.log('Successful opportunities launch');
     res.render('opportunity')
 });
 
 // leave opportunity route
-router.post('/opportunity', async(req, res) => {
+router.post('/', async(req, res) => {
 
     //console.log function in order to confirm route entrance
     console.log('opportunity post route reached')
