@@ -12,6 +12,8 @@ const registerRouter = require('./routes/register')
 const surveyRouter = require('./routes/survey')
 const manageReportsRouter = require('./routes/manageReports')
 const dashboardRouter = require('./routes/dashboard')
+const opportunityRouter = require('./routes/opportunityRouter')
+const postedOpportunitiesRouter = require('./routes/postedOpportunities')
 
 // mongodb stuff--------------------------------------------------------------------
 const mongoose = require('mongoose')
@@ -32,6 +34,8 @@ app.use('/register', registerRouter)
 app.use('/', surveyRouter)
 app.use('/manageReports', manageReportsRouter)
 app.use('/dashboard',dashboardRouter)
+app.use('/', opportunityRouter)
+app.use('/', postedOpportunitiesRouter)
 
 // syntax to limit how much data is being pushed to mongo db
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
