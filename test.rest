@@ -1,9 +1,0 @@
-Get http://localhost:3000/managereports
-
-Content-Type: application/json
-
-next()
-
-{
-    "session.userid": "yourmom@yourmom.com"
-}
