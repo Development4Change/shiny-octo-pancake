@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" media="all"/>
-        <link rel="stylesheet" type="text/css" href="views/css/form.css">
+        <link rel="stylesheet" type="text/css" href="views/css/login.css">
         <nav class="navbar navbar-expand-lg sticky-top bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +39,10 @@
             </div>
           </nav>
     </head>
-<body>
+<body onload = "closeCreateForm(); closeDeleteForm()">
     <!--form button controls-->
     <script>
+      
         function openCreateForm() {
             document.getElementById("createForm").style.display = "block";
           }
