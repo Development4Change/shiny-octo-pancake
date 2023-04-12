@@ -10,7 +10,7 @@ const indexRouter= require('./routes/index')
 const loginRouter= require('./routes/login')
 const registerRouter = require('./routes/register')
 const surveyRouter = require('./routes/survey')
-const manageReportsRouter = require('./routes/managereports')
+const manageReportsRouter = require('./routes/manageReports')
 const dashboardRouter = require('./routes/dashboard')
 
 // mongodb stuff--------------------------------------------------------------------
