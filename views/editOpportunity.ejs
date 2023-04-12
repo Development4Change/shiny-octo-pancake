@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Opportunity</title>
+    <link rel="stylesheet" href="/views/css/editOpportunity.css">
+</head>
+
+<body>
+    <h1>Edit Opportunity</h1>
+    <form action="/opportunity/edit/<%= opportunity._id %>" method="POST">
+        <label for="serviceProvider">Service Provider:</label>
+        <input type="text" name="serviceProvider" id="serviceProvider" value="<%= opportunity.serviceProvider %>">
+
+        <label for="serviceRequired">Service Required:</label>
+        <input type="text" name="serviceRequired" id="serviceRequired" value="<%= opportunity.serviceRequired %>">
+
+        <label for="contactNumber">Contact Number:</label>
+        <input type="text" name="contactNumber" id="contactNumber" value="<%= opportunity.contactNumber %>">
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="<%= opportunity.email %>">
+
+        <label for="time">Time:</label>
+        <input type="text" name="time" id="time" value="<%= opportunity.time %>">
+
+        <label for="date">Date:</label>
+        <input type="text" name="date" id="date" value="<%= opportunity.date %>">
+
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location" value="<%= opportunity.location %>">
+
+        <label for="additionalInfo">Additional Info:</label>
+        <input type="text" name="additionalInfo" id="additionalInfo" value="<%= opportunity.additionalInfo %>">
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+
+</html>
