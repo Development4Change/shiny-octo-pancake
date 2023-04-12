@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" type="text/css" href="views/css/form.css">
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/opportunity">Post Opportunity</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/PostedOpportunities">Opportunities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/survey">Leave A Review</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/completedForms">Completed Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/allReports">All Reviews</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!--Header-->
+
+
+<!--Body-->
+
+<body>
+  <h2 class="h2 text-center">Create New Opportunity</h2>
+  <div class="card w-50 mb-3 mx-auto">
+    <div class="card-body">
+    <form id="form" action="/opportunity" method="POST" onsubmit="return alert('New Opportunity Posted!');">
+        <!-- Service Provider Name-->
+        <div class="mb-3">
+          <label class="form-label">
+            Service Provider Used:
+        </label>
+        <p name ="one">(If not listed, input service provider's name manually)</p>
+
+        <input type="search" list="browsers" name="serviceProvider" class="form-select" placeholder="Type to search..." required>
+
+        <datalist id="browsers">
+            <option value="JSEB Access to Capital">
+            <option value="Better Business Bureau of Northeast Florida">
+            <option value="Jacksonville Women's Business Center">
+            <option value="Procurement Technical Assistance Center (PTAC)">
+            <option value="SCORE">
+            <option value="Small Business Development Center (SBDC) at University of North Florida (UNF)">
+            <option value="Small Business Resource Network"> 
+            <option value="U.S. Small Business Administration">
+            <option value="Women Business Owners of North Florida">
+            <option value="Florida Business Development Corporation">
+            <option value="Florida First Capital Finance Corporation (FFCFC)">
+            <option value="U.S. Small Business Administration">
+            <option value="Beaver Street Enterprise Center">
+            <option value="Small Business Workshops at the JAX Chamber's Small Business Center">
+            <option value="Small Business Workshops at the Small Business Development Center at UNF">
+            <option value="UNF Small Business Blog - From the Small Business Development Center at the University of North Florida">
+            <option value="CareerSource">
+            <option value="Jacksonville Chamber JAX Bridges">
+            <option value="Nonprofit Center of Northeast Florida">
+            <option value="Swisher Growth Cohort for Underrepresented Entrepreneurs">
+            <option value="Jim Moran Institute for Global Entrepreneurship">     
+        </datalist>
+        </input>
+        </div>
+
+        <!--Service Required-->
+        <div class="mb-3">
+            <label class="form-label" for="serviceRequired">
+                Type of service/opportunity available:
+            </label>
+            <textarea class="form-control" name="serviceRequired" id="serviceRequired" placeholder="service/opportunity available..."
+                required></textarea>
+        </div>
+
+        <!--Contact Phone Number-->
+        <div class="mb-3">
+            <label  class="form-label" for="contactNumber">Contact Phone Number:</label>
+            <input class="form-control" type="tel" id="contactNumber" name="contactNumber" required>
+        </div>
+
+        <!--Email Id-->
+        <div class="mb-3">
+            <label class="form-label" for="email">Email ID:</label>
+            <input class="form-control" type="email" id="email" name="email" required>
+        </div>
+
+        <!--Service Time-->
+        <div class="mb-3">
+            <label class="form-label" for="time">Time of Service/Opportunity:</label>
+            <input class="form-control" type="text" id="time" name="time" required>
+        </div>
+
+        <!--Service Date-->
+        <div class="mb-3">
+            <label  class="form-label" for="date">Date of Service/Opportunity:</label>
+            <input class="form-control" type="text" id="date" name="date" required>
+        </div>
+
+        <!--Service Location-->
+        <div class="mb-3">
+            <label class="form-label" for="location">Location of Service/Opportunity:</label>
+            <input class="form-control" type="text" id="location" name="location" required>
+        </div>
+
+        <!--Additional Information-->
+        <div class="mb-3">
+            <label class="form-label" for="additionalInfo">Additional Information:</label>
+            <textarea class="form-control" name="additionalInfo" id="additionalInfo"
+                placeholder="Enter any additional Information here..."></textarea>
+        </div>
+
+        <!--Submit Button-->
+        <button class="btn btn-primary" type="submit" value="submit">Post Opportunity</button>
+    </form>
+  </div>
+  </div>
+</body>
+
+</html>
