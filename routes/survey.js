@@ -33,7 +33,7 @@ router.post('/', async(req, res) => {
         await Survey.insertMany([data])
         
         const surveys = await Survey.find({});
-        res.render('index')
+        res.redirect('manageReports')
 
     }catch (e){
 
