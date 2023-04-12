@@ -1,0 +1,41 @@
+.opportunities-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 70px;    /* Increased the gap between bubbles */
+    padding: 20px;
+}
+
+.opportunity-bubble {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 40%;   /* Changed the width of the bubble to be wider */
+}
+
+.opportunity-bubble p {
+    margin: 0 0 10px 0;
+}
+
+.opportunity-bubble p:last-child {
+    margin-bottom: 0;
+}
+
+.opportunity-bubble form {
+    display: inline-block;
+}
+
+.opportunity-bubble button {
+    background-color: #009879;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.opportunity-bubble button:hover {
+    background-color: #007a63;
+}

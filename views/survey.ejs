@@ -16,25 +16,19 @@
                     <a class="nav-link" href="/index">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/register">Signup</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="/opportunities">Opportunities</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/opportunity">Post Opportunity</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/survey">Leave A Review</a>
+                    <a class="nav-link active" aria-current="page" href="/survey">Leave a Review</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/report">Completed Reviews</a>
+                    <a class="nav-link" href="/manageReports">Manage Reports</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/allReports">All Reviews</a>
+                    <a class="nav-link" href="/login">Logout</a>
                   </li>
                   
                 </ul>
@@ -208,21 +202,3 @@
     </body>
 </html>
 
-<script>
-    var formSubmitting = false;
-    var setFormSubmitting = function() { formSubmitting = true; };
-
-    window.onload = function() {
-        window.addEventListener("beforeunload", function (e) {
-            if (formSubmitting) {
-                return undefined;
-            }
-
-            var confirmationMessage = 'It looks like you have been editing something. '
-                                    + 'If you leave before saving, your changes will be lost.';
-            
-            (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-            return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
-        });
-    };
-</script>

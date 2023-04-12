@@ -16,6 +16,8 @@ const manageReportsRouter = require('./routes/manageReports')
 const dashboardRouter = require('./routes/dashboard')
 const oneDay = 1000 * 60 * 60 * 24 
 //const { authUser, authRole } = require('./basicAuth')
+const opportunityRouter = require('./routes/opportunityRouter')
+const postedOpportunitiesRouter = require('./routes/postedOpportunities')
 
 // mongodb stuff--------------------------------------------------------------------
 const mongoose = require('mongoose')
@@ -42,9 +44,11 @@ app.use(sessions({
 app.use('/', indexRouter);
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
-app.use('/', surveyRouter)
+app.use('/survey', surveyRouter)
 app.use('/manageReports', manageReportsRouter)
 app.use('/dashboard',dashboardRouter)
+app.use('/opportunity', opportunityRouter)
+app.use('/', postedOpportunitiesRouter)
 
 // syntax to limit how much data is being pushed to mongo db
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
